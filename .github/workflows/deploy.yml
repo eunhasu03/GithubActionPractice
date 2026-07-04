@@ -26,6 +26,10 @@ jobs:
       - name: Grant gradlew permission
         run: chmod +x gradlew
 
+      # 3.5  application.yaml 파일 만들기
+      - name: Make application.yaml
+        run: echo "${{ secrets.APPLICATION_PROPERTIES }}" > ./src/main/resources/application.yaml
+
       # 4. 빌드
       - name: Build Spring Boot
         run: ./gradlew clean build -x test
