@@ -13,4 +13,4 @@ spring:
       ddl-auto: create
 
 cors:
-  allowed-origin: http://localhost:3000, http://localhost:5173
+  allowed-origin: http://localhost:3000, http://localhost:5173, https://api.eunhasu03.cloud

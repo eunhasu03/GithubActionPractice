@@ -9,9 +9,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    env:
-      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-
     steps:
       # 1. 코드 체크아웃
       - name: Checkout
@@ -32,6 +29,9 @@ jobs:
       # 4. 빌드
       - name: Build Spring Boot
         run: ./gradlew clean build -x test
+
+        env:
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
       # 5. JAR 업로드 (⚠️ app 루트로 바로)
       - name: Upload JAR to server
